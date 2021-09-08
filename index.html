@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JavaScript Microsoft Graph SPA</title>
+  <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+  <style> 
+    .user { 
+      border-radius: 50%;       
+      border-style: solid; 
+      border-width: 5px; 
+      height: 150px; 
+      width: 150px; 
+    } 
+
+    .section {
+      padding-top: 10px;
+    }
+  </style> 
+</head>
+
+<body>
+  <main id="main-container" role="main" class="container">
+    <div id="content" style="display: none;">
+      <h4>Welcome <span id="userName"></span></h4>    
+      <div class="section">
+        <button id="showProfilePhoto" style="display:none" onclick="displayProfilePhoto();">Show profile picture</button> 
+        <img id="userPhoto" class="user" alt="User photo" style="display: none;" />  
+      </div> 
+      <div class="section">
+        <button id="showDirectReports" style="display:none" onclick="displayDirectReports();">Show direct reports</button> 
+        <div id="userDirectReports" style="display:none">
+          <h5>Your direct reports</h5>  
+          <ul id="userDirectReportsList">
+          </ul>
+        </div>
+      </div> 
+      <div class="section">
+        <button id="showFiles" style="display:none" onclick="displayFiles();">Show files</button> 
+        <div id="userFiles" style="display:none">
+          <h5>Your latest files</h5>  
+          <ul id="userFilesList">
+          </ul>
+        </div>
+      </div> 
+      
+    </div>
+    <a id="signin" onclick="displayUI(); return false;" href="#">
+      <img src="./images/ms-symbollockup_signin_light.png" alt="Sign in with Microsoft" />
+    </a>
+  </main>
+  <script src="https://alcdn.msauth.net/browser/2.1.0/js/msal-browser.min.js"
+    integrity="sha384-EmYPwkfj+VVmL1brMS1h6jUztl4QMS8Qq8xlZNgIT/luzg7MAzDVrRa2JxbNmk/e"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@microsoft/microsoft-graph-client/lib/graph-js-sdk.js"></script>
+  <script src="auth.js"></script>
+  <script src="graph.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
